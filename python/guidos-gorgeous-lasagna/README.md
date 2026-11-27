@@ -15,14 +15,15 @@ This includes numbers, strings, lists, and even functions.
 We'll dig more into what all of that means as we continue through the track.
 
 This first exercise introduces 4 major Python language features:
-1.  Name Assignment (_variables and constants_),
-2.  Functions (_the `def` keyword and the `return` keyword_),
-3.  Comments, and
-4.  Docstrings.
+
+1. Name Assignment (_variables and constants_),
+2. Functions (_the `def` keyword and the `return` keyword_),
+3. Comments, and
+4. Docstrings.
 
 <br>
 
-~~~~exercism/note
+```exercism/note
 
 In general, content, tests, and analyzer tooling for the Python track follow the style conventions outlined in [PEP 8](https://www.python.org/dev/peps/pep-0008/) and [PEP 257](https://www.python.org/dev/peps/pep-0257/) for Python code style, with the additional (strong) suggestion that there be no single letter variable names or variables named ["_"][uses of _ in Python].
 
@@ -31,15 +32,15 @@ On the Python track, [variables][variables] are always written in [`snake_case`]
 [variables]: https://realpython.com/python-variables/
 [snake case]: https://en.wikipedia.org/wiki/Snake_case
 [uses of _ in Python]: https://medium.com/better-programming/how-to-use-underscore-properly-in-python-37df5e05ba4c
-~~~~
+```
+
 
 <br>
 
 ## Name Assignment (Variables & Constants)
 
-Programmers can bind [_names_][facts-and-myths-about-python-names] (also called _variables_) to any type of object using the assignment `=` operator: `<name> = <value>`.
+Programmers can bind [names][facts-and-myths-about-python-names] (also called _variables_) to any type of object using the assignment `=` operator: `<name> = <value>`.
 A name can be reassigned (or re-bound) to different values (different object types) over its lifetime.
-
 
 ```python
 >>> my_first_variable = 1  #<-- my_first_variable bound to an integer object of value one.
@@ -60,20 +61,17 @@ A name can be reassigned (or re-bound) to different values (different object typ
 You can call me "str".
 ```
 
-
 ### Constants
 
 Constants are names meant to be assigned only once in a program.
 They should be defined at a [module][module] (file) level, and are typically visible to all functions and classes in the program.
 Using `SCREAMING_SNAKE_CASE` signals that the name should not be re-assigned, or its value mutated.
 
-
 ## Functions
 
 The `def` keyword begins a [function definition][function definition].
 Each function can have zero or more formal [parameters][parameters] in `()` parentheses, followed by a `:` colon.
 Statements for the _body_ of the function begin on the line following `def` and must be _indented in a block_.
-
 
 ```python
 # The body of a function is indented by 2 spaces, & prints the sum of the numbers.
@@ -97,9 +95,7 @@ def add_two_numbers(number_one, number_two):
 IndentationError: unindent does not match any outer indentation level
 ```
 
-
-Functions _explicitly_ return a value or object via the [`return`][return] keyword:
-
+Functions _explicitly_ return a value or object via the  keyword:
 
 ```python
 # Function definition on first line, explicit return used on final line.
@@ -118,11 +114,9 @@ Functions _explicitly_ return a value or object via the [`return`][return] keywo
 11
 ```
 
-
-Functions that do not have an _explicit_ expression following a `return` will _implicitly_ return the [`None`][none] object.
+Functions that do not have an _explicit_ expression following a `return` will _implicitly_ return the  object.
 The details of `None` will be covered in a later exercise.
 For the purposes of this exercise and explanation, `None` is a placeholder that represents nothing, or null:
-
 
 ```python
 
@@ -143,7 +137,7 @@ def square_a_number(number):
 None
 ```
 
-Functions that omit `return` will also  _implicitly_ return the [`None`][none] object.
+Functions that omit `return` will also  _implicitly_ return the  object.
 This means that if you do not use `return` in a function, Python will return the `None` object for you.
 
 ```python
@@ -162,10 +156,9 @@ None
 None
 ```
 
-
 ### Calling Functions
 
-Functions are [_called_][calls] or invoked using their name followed by `()`.
+Functions are [called][calls] or invoked using their name followed by `()`.
 Dot (`.`) notation is used for calling functions defined inside a class or module.
 
 ```python
@@ -198,19 +191,16 @@ TypeError: raise_to_power() missing 1 required positional argument: 'power'
 16.0
 ```
 
-
 ## Comments
 
 [Comments][comments] in Python start with a `#` that is not part of a string, and end at line termination.
 Unlike many other programming languages, Python **does not support** multi-line comment marks.
 Each line of a comment block must start with the `#` character.
 
-
 ## Docstrings
 
-The first statement of a function body can optionally be a [_docstring_][docstring], which concisely summarizes the function or object's purpose.
+The first statement of a function body can optionally be a [docstring][docstring], which concisely summarizes the function or object's purpose.
 Docstrings are declared using triple double quotes (""") indented at the same level as the code block:
-
 
 ```python
 
@@ -225,7 +215,7 @@ def complex(real=0.0, imag=0.0):
     Keyword Arguments:
         real (float): The real part of the number (default 0.0)
         imag (float): The imaginary part of the number (default 0.0)
-        
+      
     """
 
     if imag == 0.0 and real == 0.0:
@@ -233,13 +223,11 @@ def complex(real=0.0, imag=0.0):
 
 ```
 
-
 Docstrings are read by automated documentation tools such as [Sphinx][sphinx] and are returned by calling the special attribute `.__doc__` on the function, method, or class name.
 General docstring conventions are laid out in [PEP257][pep257], but exact formats will vary by project and team.
 Exercism concept exercises try to follow the Google style for un-type hinted code.
 
 Docstrings can also function as [lightweight unit tests][doctests], which will be covered in a later exercise.
-
 
 ```python
 # An example on a user-defined function using a Google style docstring. 
@@ -249,10 +237,10 @@ Docstrings can also function as [lightweight unit tests][doctests], which will b
     Parameters:
         number (int): The base number.
         power (int): The power to raise the base number to.
-    
+  
     Returns:
         int: The number raised to the specified power.
-    
+  
     Takes a number and raises it to the specified power, returning the result.
 
     """
@@ -274,7 +262,6 @@ Returns:
 Takes a number and raises it to the specified power, returning the result.
 ```
 
-
 [calls]: https://docs.python.org/3/reference/expressions.html#calls
 [comments]: https://realpython.com/python-comments-guide/#python-commenting-basics
 [docstring]: https://docs.python.org/3/tutorial/controlflow.html#tut-docstrings
@@ -292,7 +279,6 @@ Takes a number and raises it to the specified power, returning the result.
 [return]: https://docs.python.org/3/reference/simple_stmts.html#return
 [sphinx]: https://www.sphinx-doc.org/en/master/usage/index.html
 [type hints]: https://docs.python.org/3/library/typing.html
-
 ## Instructions
 
 You're going to write some code to help you cook a gorgeous lasagna from your favorite cookbook.
@@ -301,12 +287,12 @@ You have five tasks, all related to cooking your recipe.
 
 <br>
 
-~~~~exercism/note
+```exercism/note
 We have started the first function definition for you in the stub file, but you will need to write the remaining function definitions yourself.
 You will also need to define any constants yourself.
 Read the #TODO comment lines in the stub file carefully.
 Once you are done with a task, remove the TODO comment.
-~~~~
+```
 
 <br>
 
@@ -329,7 +315,6 @@ Complete the `bake_time_remaining()` function that takes the actual minutes the 
 10
 ```
 
-
 ## 3. Calculate preparation time in minutes
 
 Define the `preparation_time_in_minutes()` [function][functions] that takes the `number_of_layers` you want to add to the lasagna as an argument and returns how many minutes you would spend making them.
@@ -339,11 +324,10 @@ Assume each layer takes 2 minutes to prepare.
 >>> def preparation_time_in_minutes(number_of_layers):
         ...
         ...
-        
+      
 >>> preparation_time_in_minutes(2)
 4
 ```
-
 
 ## 4. Calculate total elapsed time (prepping + baking) in minutes
 
@@ -355,16 +339,14 @@ Define the `elapsed_time_in_minutes()` function that takes two parameters as arg
 This function should return the total minutes you have been in the kitchen cooking — your preparation time layering +
 the time the lasagna has spent baking in the oven.
 
-
 ```python
 >>> def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):
         ...
         ...
-        
+      
 >>> elapsed_time_in_minutes(3, 20)
 26
 ```
-
 
 ## 5. Update the recipe with notes
 
@@ -373,25 +355,24 @@ Go back through the recipe, adding "notes" in the form of [function docstrings][
 ```python
 def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):
     """Calculate the elapsed cooking time.
-    
+  
     Parameters:
         number_of_layers (int): The number of layers in the lasagna.
         elapsed_bake_time (int): Time the lasagna has been baking in the oven.
-    
+  
     Returns:
         int: The total time elapsed (in minutes) preparing and baking.
 
     This function takes two integers representing the number of lasagna 
     layers and the time already spent baking the lasagna. It calculates 
     the total elapsed minutes spent cooking (preparing + baking).
-    
+  
     """
 ```
 
 [constants]: https://stackoverflow.com/a/2682752
 [functions]: https://docs.python.org/3/tutorial/controlflow.html#defining-functions
 [function-docstrings]: https://docs.python.org/3/tutorial/controlflow.html#documentation-strings
-
 ## Source
 
 ### Created by
